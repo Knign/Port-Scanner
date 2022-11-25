@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 from socket import *
 import sys
 import time
@@ -10,24 +8,22 @@ hostIP = gethostbyname(host)
 print ("Please wait, scanning remote host", hostIP)
 
 try:
-    for port in range(50, 500):
+    for port in range(1, 5000):
         s = socket(AF_INET, SOCK_STREAM)
         setdefaulttimeout(1)
 
         if s.connect_ex((hostIP, port)) == 0:
-            print("Port {} is open".format(port))
+            print("Port " + str(port) + " is open")
         s.close()
 
 except KeyboardInterrupt:
-    print("\n Exiting Program")
+    print("\nExiting Program")
     sys.exit()
-
 except socket.gaierror:
-    print("\n Hostname Could Not Be Resolved")
+    print("\nHostname Could Not Be Resolved")
     sys.exit()
-
 except socket.error:
-    print("\n Server not responding")
+    print("\nServer not responding")
     sys.exit()
 
 print('Scanning Completed in ', time.time() - startTime)
