@@ -3,4 +3,4 @@
 Basic nmap-like scanner that return open ports
 <br>
 <br>
-- Usage
+- Preview
