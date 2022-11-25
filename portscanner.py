@@ -1,11 +1,14 @@
 from socket import *
 import sys
 import time
-startTime = time.time()
 
+# Getting input from user
 host = input("Enter a remote host to scan: ")
 hostIP = gethostbyname(host)
 print ("Please wait, scanning remote host", hostIP)
+
+# Obtaining time since epoch
+startTime = time.time()
 
 try:
     for port in range(1, 5000):
@@ -26,4 +29,5 @@ except socket.error:
     print("\nServer not responding")
     sys.exit()
 
-print('Scanning Completed in ', time.time() - startTime)
+# Printing time required for process to complete
+print('Scanning Completed in ' + time.time() - startTime + " seconds")
