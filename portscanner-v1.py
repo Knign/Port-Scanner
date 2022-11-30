@@ -2,7 +2,6 @@ from socket import *
 import sys
 import time
 import argparse
-import threading
 
 parser = argparse.ArgumentParser(description="Simple port scanner")
 
@@ -52,8 +51,6 @@ for port in range(start_port, end_port):
     result = portscan(port)
     if result:
         print("Port " + str(port) + " is open")
-    else:
-        print("Port " + str(port) + " is closed")
 
 # Printing time required for process to complete
 print('Scanning Completed in ' + str(time.time() - startTime) + ' seconds')
