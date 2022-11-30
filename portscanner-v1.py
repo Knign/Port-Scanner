@@ -3,9 +3,6 @@ import sys
 import time
 import argparse
 import threading
-from queue import Queue
-
-print_lock = threading.Lock()
 
 parser = argparse.ArgumentParser(description="Simple port scanner")
 
@@ -28,17 +25,16 @@ start_port, end_port = int(start_port), int(end_port)
 # Obtaining time since epoch
 startTime = time.time()
 
-# Working through the port range
-for port in range(start_port, end_port):
-    s = socket(AF_INET, SOCK_STREAM)
-    setdefaulttimeout(1)
-
+#Scanning ports
+def portscan(port):
     try:
+        s = socket(AF_INET, SOCK_STREAM)
+        setdefaulttimeout(1)
+
         # Checking if port is open
         # s.connect_ex() returns an error instead of raising exception
         if s.connect_ex((host, port)) == 0:
-            with print_lock:
-                print("Port " + str(port) + " is open")
+            return True
         s.close()
 
     except KeyboardInterrupt:
@@ -50,6 +46,14 @@ for port in range(start_port, end_port):
     except error:
         print("\nServer not responding")
         sys.exit()
+
+# Working through the port range
+for port in range(start_port, end_port):
+    result = portscan(port)
+    if result:
+        print("Port " + str(port) + " is open")
+    else:
+        print("Port " + str(port) + " is closed")
 
 # Printing time required for process to complete
 print('Scanning Completed in ' + str(time.time() - startTime) + ' seconds')
