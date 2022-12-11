@@ -1,5 +1,5 @@
 <h1>Port scanner</h1>
-Basic nmap-like port scanner
+Basic port scanner created using socket module
 <br>
 <br>
 <h3>Version 1</h3>
