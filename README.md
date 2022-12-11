@@ -2,10 +2,10 @@
 Basic port scanner created using socket module
 <br>
 <br>
-<h3>Version 1</h3>
+<h2>Version 1</h2>
 Returns open ports
 
-<h3>Version 2</h3>
+<h2>Version 2</h2>
 Returns open ports along with services running on open ports
 <br>
 <br>
