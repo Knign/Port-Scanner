@@ -10,7 +10,7 @@ parser.add_argument("host", help="Host to scan.")
 
 # Obtaining the port range
 # If no arguments are parsed, the default port range (1-65535) is selected
-parser.add_argument("--ports", "-p", dest="port_range", default="1-65535", help="Port range to scan, default is 1-65535 (all ports)")
+parser.add_argument("--ports", "-p", dest="port_range", default="1-65535", help="Port range to scan. Default is 1-65535 (all ports)")
 
 args = parser.parse_args()
 host, port_range = args.host, args.port_range
