@@ -1,13 +1,8 @@
 <h1>Port scanner</h1>
-Basic port scanner created using socket module
-<br>
-<br>
-<h2>Version 1</h2>
-Returns open ports
 
-<h2>Version 2</h2>
-Returns open ports along with services running on open ports
-<br>
+  - Basic port scanner created using socket module
+  - Version 1 only returns open ports
+  - Version 2 returns open ports along with services running on open ports
 <br>
 <h2>Usage</h2>
 
