@@ -13,28 +13,30 @@ parser.add_argument("host", help="Host to scan")
 parser.add_argument("-p,", "--ports", default="1-65535", help="Port range to scan. Default is 1-65535 (all ports)")
 
 args = parser.parse_args()
-host, port_range = args.host, args.port_range
+host, port_range = args.host, args.ports
 
-print("Please wait, scanning remote host", host)
+print("Please wait, scanning ", host)
 
-# Obtaining starting port and ending port from range
+# Obtain starting port and ending port from range
 start_port, end_port = port_range.split("-")
 start_port, end_port = int(start_port), int(end_port)
 
-# Obtaining time since epoch
+# Obtain time since epoch
 startTime = time.time()
 
-#Scanning ports
-def portscan(port):
+# Scan ports
+def portscan():
     try:
         s = socket(AF_INET, SOCK_STREAM)
         setdefaulttimeout(1)
 
-        # Checking if port is open
-        # s.connect_ex() returns an error instead of raising exception
-        if s.connect_ex((host, port)) == 0:
-            return True
-        s.close()
+        # Work through the port range
+        for port in range(start_port, end_port):
+            # Check if port is open
+            # s.connect_ex() returns an error instead of raising exception
+            if s.connect_ex((host, port)) == 0:
+                print("Port " + str(port) + " is open")
+            s.close()
 
     except KeyboardInterrupt:
         print("\nExiting Program")
@@ -46,11 +48,7 @@ def portscan(port):
         print("\nServer not responding")
         sys.exit()
 
-# Working through the port range
-for port in range(start_port, end_port):
-    result = portscan(port)
-    if result:
-        print("Port " + str(port) + " is open")
+portscan()
 
-# Printing time required for process to complete
+# Print time required for process to complete
 print('Scanning Completed in ' + str(time.time() - startTime) + ' seconds')
