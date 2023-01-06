@@ -27,14 +27,14 @@ startTime = time.time()
 # Find the services
 def printServiceOnPort():
     try:
-        s = socket(AF_INET, SOCK_STREAM)
-        setdefaulttimeout(1)
-
         # Work through the port range
         for port in range(start_port, end_port):
+            s = socket(AF_INET, SOCK_STREAM)
+            setdefaulttimeout(1)
             # Check if port is open
             # s.connect_ex() returns an error instead of raising exception
             if s.connect_ex((host, port)) == 0:
+                print("PORT\r\r\t\t\t\tSERVICE")
                 match port:
                     case 20:
                         print(str(port) + "\r\r\t\t\tftp")
@@ -137,7 +137,8 @@ def printServiceOnPort():
         print("\nServer not responding")
         sys.exit()
 
-printServiceOnPort()
+if __name__ == '__main__':
+    printServiceOnPort()
 
 # Print time required for process to complete
 print('Scanning Completed in ' + str(time.time() - startTime) + " seconds")
