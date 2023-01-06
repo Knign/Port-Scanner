@@ -36,6 +36,8 @@ def printServiceOnPort():
             if s.connect_ex((host, port)) == 0:
                 print("PORT\r\r\t\t\t\tSERVICE")
                 match port:
+                    case 7:
+                        print(str(port) + "\r\r\t\t\techo")
                     case 20:
                         print(str(port) + "\r\r\t\t\tftp")
                     case 21:
@@ -43,7 +45,7 @@ def printServiceOnPort():
                     case 22:
                         print(str(port) + "\r\t\t\t\tssh")
                     case 23:
-                        print(str(port) + "\r\t\t\t\telnet")
+                        print(str(port) + "\r\t\t\t\ttelnet")
                     case 25:
                         print(str(port) + "\r\t\t\t\tsmtp")
                     case 26:
@@ -58,6 +60,10 @@ def printServiceOnPort():
                         print(str(port) + "\r\t\t\t\ttftp")
                     case 80:
                         print(str(port) + "\r\t\t\t\thttp")
+                    case 88:
+                        print(str(port) + "\r\r\t\t\tkerberos")
+                    case 102:
+                        print(str(port) + "\r\r\t\t\tiso-tsap")
                     case 110:
                         print(str(port) + "\r\t\t\t\tpop3")
                     case 111:
@@ -66,38 +72,74 @@ def printServiceOnPort():
                         print(str(port) + "\r\t\t\t\tnntp")
                     case 123:
                         print(str(port) + "\r\t\t\t\tntp")
+                    case 135:
+                        print(str(port) + "\r\t\t\t\tmicrosoft epmap")
+                    case 137:
+                        print(str(port) + "\r\t\t\t\tnetbios-ns")
                     case 139:
                         print(str(port) + "\r\t\t\t\tsmb/samba or netbios-ssn")
                     case 143:
-                        print(str(port) + "\r\t\t\t\timap")
+                        print(str(port) + "\r\t\t\t\timap4")
                     case 161:
                         print(str(port) + "\r\t\t\t\tsnmp")
                     case 194:
                         print(str(port) + "\r\t\t\t\tirc")
+                    case 381:
+                        print(str(port) + "\r\t\t\t\thp openview")
+                    case 383:
+                        print(str(port) + "\r\t\t\t\thp openview")
                     case 389:
                         print(str(port) + "\r\t\t\t\tldap")
                     case 443:
                         print(str(port) + "\r\t\t\t\thttps")
                     case 445:
                         print(str(port) + "\r\t\t\t\tsmb/samba or microsoft-ds")
+                    case 464:
+                        print(str(port) + "\r\t\t\t\tkerberos")
                     case 512:
                         print(str(port) + "\r\t\t\t\texec")
                     case 513:
                         print(str(port) + "\r\t\t\t\tlogin")
                     case 514:
                         print(str(port) + "\r\t\t\t\tshell")
+                    case 587:
+                        print(str(port) + "\r\t\t\t\tsmtp")
+                    case 593:
+                        print(str(port) + "\r\t\t\t\tmicrosoft dcom")
+                    case 691:
+                        print(str(port) + "\r\t\t\t\tms exchange")
                     case 993:
                         print(str(port) + "\r\t\t\t\timaps")
+                    case 1025:
+                        print(str(port) + "\r\t\t\t\tmicrosoft rpc")
                     case 1099:
                         print(str(port) + "\r\t\t\t\trmiregistry")
+                    case 1194:
+                        print(str(port) + "\r\t\t\t\topenvpn")
                     case 1524:
                         print(str(port) + "\r\t\t\t\tingreslock")
+                    case 1589:
+                        print(str(port) + "\r\t\t\t\tcisco vqp")
+                    case 1725:
+                        print(str(port) + "\r\t\t\t\tsteam")
                     case 1812:
                         print(str(port) + "\r\t\t\t\tradius")
+                    case 2082:
+                        print(str(port) + "\r\t\t\t\tcpanel")
+                    case 2083:
+                        print(str(port) + "\r\t\t\t\tradsec, cpanel")
                     case 2049:
                         print(str(port) + "\r\t\t\t\tnfs")
                     case 2121:
                         print(str(port) + "\r\t\t\t\tccproxy-ftp")
+                    case 2483:
+                        print(str(port) + "\r\t\t\t\toracle db")
+                    case 2484:
+                        print(str(port) + "\r\t\t\t\toracle db")
+                    case 2967:
+                        print(str(port) + "\r\t\t\t\tsymantec av")
+                    case 3074:
+                        print(str(port) + "\r\t\t\t\txbox live")
                     case 3306:
                         print(str(port) + "\r\t\t\t\tmysql")
                     case 3632:
@@ -105,10 +147,14 @@ def printServiceOnPort():
                     case 5432:
                         print(str(port) + "\r\t\t\t\tpostgresql")
                     case 5900:
-                        print(str(port) + "\r\t\t\t\tvnc")
+                        print(str(port) + "\r\t\t\t\trfb/vnc server")
                     case 6000:
                         print(str(port) + "\r\t\t\t\tx11")
+                    case 6665:
+                        print(str(port) + "\r\t\t\t\tirc")
                     case 6667:
+                        print(str(port) + "\r\t\t\t\tirc")
+                    case 6669:
                         print(str(port) + "\r\t\t\t\tirc")
                     case 6697:
                         print(str(port) + "\r\t\t\t\tircu-s")
@@ -120,8 +166,16 @@ def printServiceOnPort():
                         print(str(port) + "\r\t\t\t\tajp13")
                     case 8080:
                         print(str(port) + "\r\t\t\t\thttp")
+                    case 8086:
+                        print(str(port) + "\r\t\t\t\tkaspersky av")
+                    case 8087:
+                        print(str(port) + "\r\t\t\t\tkaspersky av")
+                    case 8222:
+                        print(str(port) + "\r\t\t\t\tvmware server")
                     case 8787:
                         print(str(port) + "\r\t\t\t\tmsgsrvr")
+                    case 9100:
+                        print(str(port) + "\r\t\t\t\tpdl")
                     case 18182:
                         print(str(port) + "\r\t\t\t\topsec-ufp")
                     case _:
