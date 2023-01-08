@@ -14,5 +14,5 @@
 ## Usage
 
 ```
-python portscanner.py 127.0.0.1 -p 1-100
+python portscanner.py x.x.x.x -p 1-100
 ```
