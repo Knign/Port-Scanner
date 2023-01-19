@@ -1,5 +1,5 @@
 # Port scanner 
-  - Created using socket module
+Port Scanner made using socket module
   - Version 1: Returns open ports
   - Version 2: Returns open ports along with services running on open ports
 
